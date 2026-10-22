@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharon & Austyn — Digital Wedding Invitation 2026</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ivory: '#FBF9F5',
+                        cream: '#F4EFE6',
+                        gold: '#C5A059',
+                        champagne: '#D4AF37',
+                        darkGold: '#9A7B3E',
+                        espresso: '#2C221E',
+                        deepMocha: '#1C1512',
+                        taupe: '#8C7A6B'
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        script: ['"Alex Brush"', 'cursive'],
+                        sans: ['"Montserrat"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FBF9F5;
+            color: #2C221E;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FBF9F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 3px;
+        }
+
+        .gold-border {
+            border: 1px solid rgba(197, 160, 89, 0.35);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #E5C378 0%, #C5A059 50%, #9A7B3E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-luxury-card {
+            background: #2C221E;
+            color: #FBF9F5;
+        }
+
+        .glass-panel {
+            background: rgba(251, 249, 245, 0.92);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Pulse animation for active audio badge */
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+        .pulse-glow {
+            animation: pulseGlow 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen">
+
+    <!-- Canvas Floating Sparkle & Heart Background -->
+    <canvas id="particleCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+    <!-- Floating Audio Control Button -->
+    <div class="fixed bottom-6 right-6 z-40">
+        <button id="musicToggle" onclick="toggleAudio()" aria-label="Toggle Ambient Music" class="w-12 h-12 rounded-full bg-espresso text-gold shadow-2xl flex items-center justify-center border border-gold/50 hover:scale-105 active:scale-95 transition-all duration-300 group focus:outline-none">
+            <i id="musicIcon" class="fas fa-music text-lg group-hover:rotate-12 transition-transform"></i>
+            <span id="musicPulse" class="absolute -top-1 -right-1 flex h-3 w-3 hidden">
+              <span class="pulse-glow absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-gold"></span>
+            </span>
+        </button>
+    </div>
+
+    <!-- Main Container Layout -->
+    <div class="relative z-10 max-w-2xl mx-auto px-4 py-6 md:py-12">
+
+        <!-- Top Header Announcement -->
+        <div class="text-center mb-6">
+            <span class="text-[11px] uppercase tracking-[0.25em] text-taupe font-medium">Digital Wedding Invitation</span>
+            <div class="w-12 h-px bg-gold/40 mx-auto mt-2"></div>
+        </div>
+
+        <!-- HERO SECTION -->
+        <section class="bg-luxury-card rounded-3xl p-6 md:p-10 text-center shadow-2xl relative overflow-hidden mb-8 border border-gold/30">
+            <!-- Decorative Inner Border Accents -->
+            <div class="absolute top-3 left-3 w-10 h-10 border-t border-l border-gold/40 rounded-tl-xl pointer-events-none"></div>
+            <div class="absolute bottom-3 right-3 w-10 h-10 border-b border-r border-gold/40 rounded-br-xl pointer-events-none"></div>
+
+            <p class="text-gold uppercase tracking-[0.3em] text-[11px] font-semibold mb-2">Save The Date</p>
+            <h1 class="font-script text-5xl md:text-7xl text-ivory mb-2 leading-tight">Sharon & Austyn</h1>
+            <p class="font-serif italic text-base md:text-xl text-gold/90 mb-6 font-light">"We hope to count on your presence"</p>
+
+            <!-- Hero Image Banner -->
+            <div class="relative rounded-2xl overflow-hidden mb-6 shadow-2xl border border-gold/30 aspect-[4/5] group">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80" 
+                     alt="Sharon & Austyn Engagement" 
+                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/30 to-transparent"></div>
+                <div class="absolute bottom-6 inset-x-4 text-center">
+                    <p class="text-[11px] uppercase tracking-[0.2em] text-gold mb-1 font-medium">Celebrating Eternal Love</p>
+                    <p class="font-serif text-xl md:text-2xl text-ivory tracking-wide font-medium">SATURDAY, NOVEMBER 28, 2026</p>
+                </div>
+            </div>
+
+            <!-- Live Countdown Timer -->
+            <div class="grid grid-cols-4 gap-2 md:gap-3 my-6">
+                <div class="bg-deepMocha/90 p-3 rounded-xl border border-gold/20 text-center">
+                    <span id="cd-days" class="font-serif text-2xl md:text-3xl font-bold text-gold block">00</span>
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-wider text-ivory/70">Days</span>
+                </div>
+                <div class="bg-deepMocha/90 p-3 rounded-xl border border-gold/20 text-center">
+                    <span id="cd-hours" class="font-serif text-2xl md:text-3xl font-bold text-gold block">00</span>
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-wider text-ivory/70">Hours</span>
+                </div>
+                <div class="bg-deepMocha/90 p-3 rounded-xl border border-gold/20 text-center">
+                    <span id="cd-minutes" class="font-serif text-2xl md:text-3xl font-bold text-gold block">00</span>
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-wider text-ivory/70">Mins</span>
+                </div>
+                <div class="bg-deepMocha/90 p-3 rounded-xl border border-gold/20 text-center">
+                    <span id="cd-seconds" class="font-serif text-2xl md:text-3xl font-bold text-gold block">00</span>
+                    <span class="text-[9px] md:text-[10px] uppercase tracking-wider text-ivory/70">Secs</span>
+                </div>
+            </div>
+
+            <!-- RSVP Quick Action CTA Button -->
+            <button onclick="openModal('rsvpModal')" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-champagne via-gold to-darkGold text-espresso font-bold uppercase text-xs tracking-[0.2em] shadow-lg hover:brightness-110 active:scale-98 transition-all duration-300">
+                <i class="far fa-check-circle mr-2"></i> Confirm Your Attendance
+            </button>
+        </section>
+
+        <!-- OUR STORY SECTION -->
+        <section class="bg-white rounded-3xl p-6 md:p-10 shadow-xl mb-8 border border-gold/20 text-center relative overflow-hidden">
+            <span class="text-gold uppercase tracking-[0.25em] text-[11px] font-semibold">Our Story</span>
+            <h2 class="font-script text-4xl md:text-5xl text-espresso mt-1">A love that grew beautifully</h2>
+            <div class="w-16 h-0.5 bg-gold/40 mx-auto my-4"></div>
+
+            <p class="text-taupe text-sm md:text-base leading-relaxed font-light max-w-lg mx-auto mb-6">
+                From simple beginnings to a lifetime commitment, our journey together has been paved with laughter, unwavering support, and unforgettable moments. On this special day, we step into our forever surrounded by those we hold dearest.
+            </p>
+
+            <div class="rounded-2xl overflow-hidden shadow-md aspect-video relative group border border-gold/20">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Sharon & Austyn Celebration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-espresso/20"></div>
+            </div>
+        </section>
+
+        <!-- SCHEDULE, LOCATION & DRESS CODE -->
+        <section class="bg-luxury-card rounded-3xl p-6 md:p-10 shadow-xl mb-8 border border-gold/30 text-ivory">
+            <div class="text-center mb-8">
+                <span class="text-gold uppercase tracking-[0.25em] text-[11px] font-semibold">The Celebration</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-ivory mt-1">When & Where</h2>
+                <div class="w-12 h-0.5 bg-gold mx-auto mt-2"></div>
+            </div>
+
+            <!-- Ceremony & Reception Cards -->
+            <div class="space-y-4">
+                <!-- Ceremony Card -->
+                <div class="bg-deepMocha/90 rounded-2xl p-5 border border-gold/20 flex flex-col md:flex-row items-center text-center md:text-left gap-4">
+                    <div class="w-12 h-12 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center text-gold shrink-0">
+                        <i class="fas fa-church text-lg"></i>
+                    </div>
+                    <div class="grow">
+                        <h3 class="font-serif text-xl text-gold font-semibold">Holy Matrimony</h3>
+                        <p class="text-xs text-ivory/80 mt-1"><i class="far fa-clock text-gold mr-1"></i> 10:00 AM WAT</p>
+                        <p class="text-xs text-ivory/70 mt-1"><i class="fas fa-map-marker-alt text-gold mr-1"></i> Cathedral Church of Christ, Marina, Lagos</p>
+                    </div>
+                    <a href="https://maps.google.com/?q=Cathedral+Church+of+Christ+Marina+Lagos" target="_blank" class="shrink-0 py-2 px-4 rounded-xl border border-gold/50 text-gold hover:bg-gold hover:text-espresso text-[11px] font-semibold uppercase tracking-wider transition-colors">
+                        Get Directions
+                    </a>
+                </div>
+
+                <!-- Reception Card -->
+                <div class="bg-deepMocha/90 rounded-2xl p-5 border border-gold/20 flex flex-col md:flex-row items-center text-center md:text-left gap-4">
+                    <div class="w-12 h-12 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center text-gold shrink-0">
+                        <i class="fas fa-glass-cheers text-lg"></i>
+                    </div>
+                    <div class="grow">
+                        <h3 class="font-serif text-xl text-gold font-semibold">Grand Reception</h3>
+                        <p class="text-xs text-ivory/80 mt-1"><i class="far fa-clock text-gold mr-1"></i> 02:00 PM WAT</p>
+                        <p class="text-xs text-ivory/70 mt-1"><i class="fas fa-map-marker-alt text-gold mr-1"></i> The Grand Ballroom, Eko Hotel & Suites, Victoria Island</p>
+                    </div>
+                    <a href="https://maps.google.com/?q=Eko+Hotel+and+Suites+Lagos" target="_blank" class="shrink-0 py-2 px-4 rounded-xl border border-gold/50 text-gold hover:bg-gold hover:text-espresso text-[11px] font-semibold uppercase tracking-wider transition-colors">
+                        Get Directions
+                    </a>
+                </div>
+            </div>
+
+            <!-- Dress Code Banner -->
+            <div class="mt-8 bg-deepMocha/80 rounded-2xl p-6 border border-gold/30 text-center">
+                <div class="w-10 h-10 rounded-full bg-gold/10 text-gold mx-auto flex items-center justify-center mb-2">
+                    <i class="fas fa-user-tie text-base"></i>
+                </div>
+                <h4 class="font-serif text-lg text-gold font-semibold">Dress Code: Black Tie / Formal Elegance</h4>
+                <p class="text-xs text-ivory/80 italic mt-2">
+                    "With love, we kindly ask that you avoid white and similar shades."
+                </p>
+            </div>
+        </section>
+
+        <!-- MEDIA GALLERY SECTION WITH LIGHTBOX -->
+        <section class="bg-white rounded-3xl p-6 md:p-10 shadow-xl mb-8 border border-gold/20">
+            <div class="text-center mb-6">
+                <span class="text-gold uppercase tracking-[0.25em] text-[11px] font-semibold">Memories</span>
+                <h2 class="font-serif text-3xl text-espresso mt-1">Our Moments</h2>
+                <div class="w-12 h-0.5 bg-gold/40 mx-auto mt-2"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div onclick="openLightbox('https://images.unsplash.com/photo-1510076803423-107b227c24a6?auto=format&fit=crop&w=1200&q=80', 'Champagne Toast Celebration')" class="cursor-pointer rounded-xl overflow-hidden aspect-square relative group border border-gold/20">
+                    <img src="https://images.unsplash.com/photo-1510076803423-107b227c24a6?auto=format&fit=crop&w=500&q=80" alt="Champagne Toast" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-espresso/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div onclick="openLightbox('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1200&q=80', 'Engagement Ring & Hands')" class="cursor-pointer rounded-xl overflow-hidden aspect-square relative group border border-gold/20">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=500&q=80" alt="Engagement Ring" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-espresso/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div onclick="openLightbox('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80', 'Groom Tuxedo & Timepiece')" class="cursor-pointer rounded-xl overflow-hidden aspect-square relative group border border-gold/20">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80" alt="Groom Detail" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-espresso/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <div onclick="openLightbox('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80', 'Bridal Floral Bouquet')" class="cursor-pointer rounded-xl overflow-hidden aspect-square relative group border border-gold/20">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=500&q=80" alt="Bouquet" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-espresso/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GIFT SUGGESTIONS SECTION -->
+        <section class="bg-luxury-card rounded-3xl p-6 md:p-10 shadow-2xl mb-8 border border-gold/30">
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-full bg-gold/10 border border-gold/30 text-gold mx-auto flex items-center justify-center mb-3">
+                    <i class="fas fa-gift text-lg"></i>
+                </div>
+                <h2 class="font-script text-4xl text-ivory">Gift Suggestion</h2>
+                <p class="text-xs text-ivory/80 max-w-md mx-auto mt-2 font-light leading-relaxed">
+                    Your presence is the greatest gift, but if you like to give us a token we have these options for you.
+                </p>
+            </div>
+
+            <!-- Registry Buttons Options -->
+            <div class="space-y-3 max-w-md mx-auto">
+                <!-- Zenith Bank Option -->
+                <button onclick="openModal('zenithModal')" class="w-full py-3.5 px-5 rounded-2xl border border-gold/40 bg-deepMocha/90 hover:border-gold hover:bg-gold/10 text-ivory flex items-center justify-between transition-all duration-300 group">
+                    <span class="flex items-center text-xs md:text-sm font-medium">
+                        <i class="fas fa-university text-gold mr-3"></i> Zenith Bank
+                    </span>
+                    <i class="fas fa-chevron-right text-xs text-gold/60 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+
+                <!-- Zelle Info Option -->
+                <button onclick="openModal('zelleModal')" class="w-full py-3.5 px-5 rounded-2xl border border-gold/40 bg-deepMocha/90 hover:border-gold hover:bg-gold/10 text-ivory flex items-center justify-between transition-all duration-300 group">
+                    <span class="flex items-center text-xs md:text-sm font-medium">
+                        <i class="fas fa-bolt text-gold mr-3"></i> Zelle Info
+                    </span>
+                    <i class="fas fa-chevron-right text-xs text-gold/60 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+
+                <!-- Cash App Option -->
+                <button onclick="openModal('cashAppModal')" class="w-full py-3.5 px-5 rounded-2xl border border-gold/40 bg-deepMocha/90 hover:border-gold hover:bg-gold/10 text-ivory flex items-center justify-between transition-all duration-300 group">
+                    <span class="flex items-center text-xs md:text-sm font-medium">
+                        <i class="fas fa-dollar-sign text-gold mr-3"></i> Cash App
+                    </span>
+                    <i class="fas fa-chevron-right text-xs text-gold/60 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- NOTES AND REMINDERS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div class="bg-white/90 p-6 rounded-3xl border border-gold/20 shadow-sm text-center">
+                <div class="w-10 h-10 rounded-full bg-gold/10 text-gold mx-auto flex items-center justify-center mb-3">
+                    <i class="far fa-clock text-base"></i>
+                </div>
+                <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-espresso mb-1">A Little Reminder</h4>
+                <p class="text-xs text-taupe leading-relaxed">
+                    Please arrive on time and follow the guidance of our wedding team. We appreciate your help in making the day run smoothly.
+                </p>
+            </div>
+
+            <div class="bg-white/90 p-6 rounded-3xl border border-gold/20 shadow-sm text-center">
+                <div class="w-10 h-10 rounded-full bg-gold/10 text-gold mx-auto flex items-center justify-center mb-3">
+                    <i class="fas fa-heart text-base"></i>
+                </div>
+                <h4 class="text-xs uppercase tracking-[0.2em] font-semibold text-espresso mb-1">A Note For Our Guests</h4>
+                <p class="text-xs text-taupe leading-relaxed">
+                    We can't wait to celebrate with you and create timeless memories together!
+                </p>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="bg-luxury-card rounded-3xl p-8 md:p-12 text-center shadow-2xl border border-gold/30 text-ivory relative overflow-hidden">
+            <p class="text-gold uppercase tracking-[0.25em] text-[10px] mb-2 font-semibold">WE HOPE TO COUNT ON YOUR PRESENCE</p>
+            <h2 class="font-script text-5xl md:text-6xl text-gold mb-3">Thank You!</h2>
+            <p class="text-xs text-ivory/80 uppercase tracking-[0.2em] mb-2 font-medium">SEE YOU SOON!</p>
+            <p class="text-xs text-ivory/60 font-light mb-6">We look forward to celebrating our special day with you!</p>
+
+            <div class="pt-6 border-t border-gold/20 text-[11px] text-gold/80 font-serif tracking-widest uppercase">
+                Sharon & Austyn • 2026
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- MODALS & POPUPS -->
+
+    <!-- RSVP Modal -->
+    <div id="rsvpModal" class="fixed inset-0 z-50 bg-black/75 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-3xl p-6 md:p-8 max-w-md w-full relative shadow-2xl text-espresso transform scale-95 transition-transform duration-300 border border-gold/30 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('rsvpModal')" class="absolute top-4 right-4 text-espresso/50 hover:text-gold text-lg">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="text-center mb-6">
+                <span class="text-gold uppercase tracking-[0.2em] text-[10px] font-semibold">Kindly Respond</span>
+                <h3 class="font-serif text-2xl text-espresso font-bold mt-1">Confirm Your Attendance</h3>
+                <div class="w-10 h-0.5 bg-gold mx-auto mt-2"></div>
+            </div>
+
+            <form onsubmit="handleRSVP(event)" class="space-y-4 text-left">
+                <div>
+                    <label class="block text-[11px] uppercase tracking-wider text-espresso/80 font-semibold mb-1">Full Name *</label>
+                    <input type="text" required placeholder="Your full name" class="w-full px-4 py-2.5 rounded-xl bg-ivory border border-gold/30 text-espresso text-xs focus:outline-none focus:border-gold">
+                </div>
+
+                <div>
+                    <label class="block text-[11px] uppercase tracking-wider text-espresso/80 font-semibold mb-1">Attendance Status *</label>
+                    <select required class="w-full px-4 py-2.5 rounded-xl bg-ivory border border-gold/30 text-espresso text-xs focus:outline-none focus:border-gold">
+                        <option value="attending">Joyfully Accept (I will be there!)</option>
+                        <option value="declining">Regretfully Decline (In spirit)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] uppercase tracking-wider text-espresso/80 font-semibold mb-1">Number of Guests *</label>
+                    <select required class="w-full px-4 py-2.5 rounded-xl bg-ivory border border-gold/30 text-espresso text-xs focus:outline-none focus:border-gold">
+                        <option value="1">1 Person</option>
+                        <option value="2">2 Persons</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] uppercase tracking-wider text-espresso/80 font-semibold mb-1">Meal Preference</label>
+                    <input type="text" placeholder="e.g. Vegetarian, Allergies, or Standard" class="w-full px-4 py-2.5 rounded-xl bg-ivory border border-gold/30 text-espresso text-xs focus:outline-none focus:border-gold">
+                </div>
+
+                <div>
+                    <label class="block text-[11px] uppercase tracking-wider text-espresso/80 font-semibold mb-1">Warm Wishes / Notes</label>
+                    <textarea rows="2" placeholder="Leave a sweet note for Sharon & Austyn..." class="w-full px-4 py-2.5 rounded-xl bg-ivory border border-gold/30 text-espresso text-xs focus:outline-none focus:border-gold resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-espresso text-gold font-bold uppercase text-xs tracking-widest shadow-lg hover:bg-deepMocha transition-colors mt-2 border border-gold/40">
+                    Submit RSVP
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Zenith Bank Modal -->
+    <div id="zenithModal" class="fixed inset-0 z-50 bg-black/75 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-luxury-card border border-gold/40 rounded-3xl p-6 max-w-sm w-full text-center relative shadow-2xl text-ivory transform scale-95 transition-transform duration-300">
+            <button onclick="closeModal('zenithModal')" class="absolute top-4 right-4 text-ivory/60 hover:text-gold text-lg">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="w-12 h-12 rounded-full bg-gold/10 text-gold mx-auto flex items-center justify-center mb-3 border border-gold/30">
+                <i class="fas fa-university text-xl"></i>
+            </div>
+            <h3 class="font-serif text-2xl text-gold font-semibold">Zenith Bank</h3>
+            <p class="text-xs text-ivory/70 mt-1 mb-4">Naira Gift Account</p>
+
+            <div class="bg-deepMocha p-4 rounded-2xl border border-gold/20 text-left space-y-2 text-xs mb-5">
+                <div>
+                    <span class="text-ivory/50 block text-[10px] uppercase">Account Name</span>
+                    <span class="font-semibold text-ivory">Sharon & Austyn Wedding</span>
+                </div>
+                <div>
+                    <span class="text-ivory/50 block text-[10px] uppercase">Account Number</span>
+                    <span class="font-mono text-gold font-bold text-base">1012345678</span>
+                </div>
+                <div>
+                    <span class="text-ivory/50 block text-[10px] uppercase">Bank Name</span>
+                    <span class="text-ivory">Zenith Bank Plc</span>
+                </div>
+            </div>
+
+            <button onclick="copyText('1012345678', 'Zenith Bank Account Number Copied!')" class="w-full py-3 rounded-xl bg-gold text-espresso font-bold uppercase text-xs tracking-wider hover:brightness-110 shadow-lg">
+                <i class="far fa-copy mr-1.5"></i> Copy Account Number
+            </button>
+        </div>
+    </div>
+
+    <!-- Zelle Modal -->
+    <div id="zelleModal" class="fixed inset-0 z-50 bg-black/75 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-luxury-card border border-gold/40 rounded-3xl p-6 max-w-sm w-full text-center relative shadow-2xl text-ivory transform scale-95 transition-transform duration-300">
+            <button onclick="closeModal('zelleModal')" class="absolute top-4 right-4 text-ivory/60 hover:text-gold text-lg">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="w-12 h-12 rounded-full bg-gold/10 text-gold mx-auto flex items-center justify-center mb-3 border border-gold/30">
+                <i class="fas fa-bolt text-xl"></i>
+            </div>
+            <h3 class="font-serif text-2xl text-gold font-semibold">Zelle Info</h3>
+            <p class="text-xs text-ivory/70 mt-1 mb-4">USD Gift Option</p>
+
+            <div class="bg-deepMocha p-4 rounded-2xl border border-gold/20 text-left space-y-2 text-xs mb-5">
+                <div>
+                    <span class="text-ivory/50 block text-[10px] uppercase">Zelle ID / Email</span>
+                    <span class="font-mono text-gold font-bold text-sm">austyn.sharon2026@gmail.com</span>
+                </div>
+                <div>
+                    <span class="text-ivory/50 block text-[10px] uppercase">Recipient Name</span>
+                    <span class="text-ivory">Austyn & Sharon</span>
+                </div>
+            </div>
+
+            <button onclick="copyText('austyn.sharon2026@gmail.com', 'Zelle Email Copied!')" class="w-full py-3 rounded-xl bg-gold text-espresso font-bold uppercase text-xs tracking-wider hover:brightness-110 shadow-lg">
+                <i class="far fa-copy mr-1.5"></i> Copy Zelle Address
+            </button>
+        </div>
+    </div>
+
+    <!-- Cash App Modal -->
+    <div id="cashAppModal" class="fixed inset-0 z-50 bg-black/75 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-luxury-card border border-gold/40 rounded-3xl p-6 max-w-sm w-full text-center relative shadow-2xl text-ivory transform scale-95 transition-transform duration-300">
+            <button onclick="closeModal('cashAppModal')" class="absolute top-4 right-4 text-ivory/60 hover:text-gold text-lg">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="w-12 h-12 rounded-full bg-gold/10 text-gold mx-auto flex items-center justify-center mb-3 border border-gold/30">
+                <i class="fas fa-dollar-sign text-xl"></i>
+            </div>
+            <h3 class="font-serif text-2xl text-gold font-semibold">Cash App</h3>
+            <p class="text-xs text-ivory/70 mt-1 mb-4">Cashtag Option</p>
+
+            <div class="bg-deepMocha p-4 rounded-2xl border border-gold/20 text-left space-y-2 text-xs mb-5">
+                <div>
+                    <span class="text-ivory/50 block text-[10px] uppercase">Cashtag</span>
+                    <span class="font-mono text-gold font-bold text-base">$SharonAustyn2026</span>
+                </div>
+            </div>
+
+            <button onclick="copyText('$SharonAustyn2026', 'Cashtag Copied!')" class="w-full py-3 rounded-xl bg-gold text-espresso font-bold uppercase text-xs tracking-wider hover:brightness-110 shadow-lg">
+                <i class="far fa-copy mr-1.5"></i> Copy $Cashtag
+            </button>
+        </div>
+    </div>
+
+    <!-- Gallery Lightbox Modal -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeModal('lightboxModal')">
+        <div class="relative max-w-2xl w-full text-center" onclick="event.stopPropagation()">
+            <button onclick="closeModal('lightboxModal')" class="absolute -top-10 right-0 text-white hover:text-gold text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="lightboxImg" src="" alt="Wedding Gallery High Res" class="w-full h-auto rounded-2xl shadow-2xl max-h-[80vh] object-contain border border-gold/30">
+            <p id="lightboxCaption" class="text-gold font-serif text-lg mt-3"></p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 bg-espresso border border-gold text-gold px-6 py-3 rounded-full text-xs font-semibold shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-50 flex items-center gap-2">
+        <i class="fas fa-check-circle text-gold"></i>
+        <span id="toastMsg">Copied to clipboard!</span>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- COUNTDOWN TIMER ---
+        const weddingDate = new Date("November 28, 2026 10:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById("cd-days").innerText = "00";
+                document.getElementById("cd-hours").innerText = "00";
+                document.getElementById("cd-minutes").innerText = "00";
+                document.getElementById("cd-seconds").innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("cd-days").innerText = days < 10 ? '0' + days : days;
+            document.getElementById("cd-hours").innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById("cd-minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById("cd-seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // --- MODAL CONTROLS ---
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            const inner = modal.querySelector('div');
+            if (inner) {
+                inner.classList.remove('scale-95');
+                inner.classList.add('scale-100');
+            }
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            const inner = modal.querySelector('div');
+            if (inner) {
+                inner.classList.remove('scale-100');
+                inner.classList.add('scale-95');
+            }
+        }
+
+        // Close modal on background tap
+        window.onclick = function(event) {
+            ['zenithModal', 'zelleModal', 'cashAppModal', 'rsvpModal'].forEach(id => {
+                const modal = document.getElementById(id);
+                if (event.target === modal) {
+                    closeModal(id);
+                }
+            });
+        };
+
+        // --- LIGHTBOX CONTROLS ---
+        function openLightbox(src, caption) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightboxCaption').innerText = caption;
+            openModal('lightboxModal');
+        }
+
+        // --- COPY TO CLIPBOARD ---
+        function copyText(text, message) {
+            const tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            showToast(message);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.innerText = msg;
+
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // --- RSVP FORM HANDLER ---
+        function handleRSVP(e) {
+            e.preventDefault();
+            closeModal('rsvpModal');
+            showToast("Thank you! Your RSVP has been confirmed.");
+            e.target.reset();
+        }
+
+        // --- AMBIENT SOUND SYNTHESIZER (WEB AUDIO API) ---
+        let audioCtx = null;
+        let isPlaying = false;
+        let melodyInterval = null;
+
+        function toggleAudio() {
+            const pulse = document.getElementById('musicPulse');
+            const icon = document.getElementById('musicIcon');
+
+            if (!isPlaying) {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                audioCtx.resume();
+                startAmbientMusic();
+                isPlaying = true;
+                pulse.classList.remove('hidden');
+                icon.className = "fas fa-pause text-lg";
+                showToast("Playing Wedding Chimes 🎵");
+            } else {
+                stopAmbientMusic();
+                isPlaying = false;
+                pulse.classList.add('hidden');
+                icon.className = "fas fa-music text-lg";
+            }
+        }
+
+        function startAmbientMusic() {
+            const notes = [261.63, 329.63, 392.00, 493.88, 523.25, 659.25, 783.99]; // Pentatonic warmth
+            
+            melodyInterval = setInterval(() => {
+                if (!audioCtx) return;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                const freq = notes[Math.floor(Math.random() * notes.length)];
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+                gain.gain.setValueAtTime(0.01, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.1, audioCtx.currentTime + 0.3);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 2.5);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + 2.5);
+            }, 750);
+        }
+
+        function stopAmbientMusic() {
+            if (melodyInterval) clearInterval(melodyInterval);
+        }
+
+        // --- FLOATING SPARKLE CANVAS PARTICLES ---
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const particles = Array.from({ length: 30 }, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 2.5 + 1,
+            speedY: Math.random() * 0.3 + 0.1,
+            opacity: Math.random() * 0.6 + 0.2
+        }));
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#C5A059';
+
+            particles.forEach(p => {
+                ctx.globalAlpha = p.opacity;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                p.y -= p.speedY;
+                if (p.y < 0) {
+                    p.y = canvas.height;
+                    p.x = Math.random() * canvas.width;
+                }
+            });
+
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+    </script>
+</body>
+</html>
